@@ -1,0 +1,14 @@
+name: Build-My-Project
+on: [push]  # This means: "Run every time I upload code"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3  # Robot grabs your code
+      
+      - name: Build the Docker Image
+        run: docker build . -t my-app:latest  # Robot tries to build it
+        
+      - name: Success Message
+        run: echo "The build was successful!"
